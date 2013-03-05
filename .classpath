@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="unittest"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/commons-configuration-1.6.jar"/>
+	<classpathentry kind="lib" path="lib/commons-lang-2.5.jar"/>
+	<classpathentry kind="lib" path="lib/guava-14.0-rc1.jar"/>
+	<classpathentry kind="lib" path="lib/hadoop-core-1.0.3.jar"/>
+	<classpathentry kind="lib" path="lib/hbase-0.94.2.jar"/>
+	<classpathentry kind="lib" path="lib/jcl-over-slf4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="lib/joda-time-2.1.jar"/>
+	<classpathentry kind="lib" path="lib/jsoup-1.7.1.jar"/>
+	<classpathentry kind="lib" path="lib/log4j-1.2.16.jar"/>
+	<classpathentry kind="lib" path="lib/logback-classic-0.9.27.jar"/>
+	<classpathentry kind="lib" path="lib/logback-core-0.9.27.jar"/>
+	<classpathentry kind="lib" path="lib/protobuf-java-2.4.0a.jar"/>
+	<classpathentry kind="lib" path="lib/reflections-0.9.8-uberjar.jar"/>
+	<classpathentry kind="lib" path="lib/slf4j-api-1.6.1.jar"/>
+	<classpathentry kind="lib" path="lib/zookeeper-3.4.3.jar"/>
+	<classpathentry kind="lib" path="lib/test/junit-4.10-HBASE-1.jar"/>
+	<classpathentry kind="lib" path="lib/test/hbase-0.94.2-tests.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
