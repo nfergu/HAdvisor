@@ -1,6 +1,3 @@
-/**
- * Copyright (C) 2010 Causata
- */
 package com.hbasetmp.hadvisor.contextimpl;
 
 import static com.google.common.collect.Lists.*;

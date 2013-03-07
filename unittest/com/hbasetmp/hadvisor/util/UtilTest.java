@@ -1,6 +1,3 @@
-/**
- * Copyright (C) 2010 Causata
- */
 package com.hbasetmp.hadvisor.util;
 
 import static org.junit.Assert.*;

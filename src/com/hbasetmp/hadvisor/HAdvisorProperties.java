@@ -1,6 +1,3 @@
-/**
- * Copyright (C) 2010 Causata
- */
 package com.hbasetmp.hadvisor;
 
 import com.hbasetmp.hadvisor.advisor.AdvisorProperty;

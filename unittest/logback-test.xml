@@ -26,7 +26,5 @@
         <appender-ref ref="STD_OUT" />
 		<appender-ref ref="STD_ERR" />
     </root>
-    
-    <logger name="com.causata" level="DEBUG" />
 
 </configuration>
