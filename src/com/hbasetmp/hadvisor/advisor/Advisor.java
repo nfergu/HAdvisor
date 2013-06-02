@@ -68,11 +68,6 @@ public interface Advisor {
 	public String getDescription();
 	
 	/**
-	 * Gets the author of this advisor. This is displayed to the user.
-	 */
-	public String getAuthor();
-	
-	/**
 	 * Returns the version of this advisor.
 	 */
 	public Version getVersion();
@@ -87,7 +82,7 @@ public interface Advisor {
 	 * version that this advisor was compiled against, but could be any earlier version if compatibility against
 	 * that version is known).
 	 * 
-	 * <p>The easiest way to find the appropriate is to run the main method of {@link HAdvisorVersion}
+	 * <p>The easiest way to find the appropriate version is to run the main method of {@link HAdvisorVersion}
 	 */
 	public HAdvisorVersion getEarliestKnownCompatibleVersion();
 	

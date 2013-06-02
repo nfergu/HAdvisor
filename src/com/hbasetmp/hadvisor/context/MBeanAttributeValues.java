@@ -5,16 +5,13 @@ import java.util.Map;
 
 import javax.management.ObjectName;
 
-import com.hbasetmp.hadvisor.exception.JmxConnectionException;
-
 /**
- * DOCUMENTME NF
+ * Represents a set of attribute values for MBeans
  */
 public class MBeanAttributeValues {
 
-    /**
-     * @param e
-     */
+    // TODO: Implement this
+    
     public MBeanAttributeValues(Exception e) {
         // TODO Auto-generated constructor stub
     }

@@ -56,14 +56,17 @@ public class SnapshotDataImpl implements SnapshotData {
     private final Subscriptions subscriptions;
     private final ClusterStatus clusterStatus;
     private final Collection<ServerName> liveServers;
+    private final AdvisorManager advisorManager;
     private final Map<ServerName, HServerLoad> regionServerLoadDetails;
     private final Map<TableName, List<RegionDetails>> regionDetails;
     private final Map<HBaseService, MBeanAttributeValues> subscribedJmxAttributeValues;
 
-    public SnapshotDataImpl(DateTime snapshotTime, HBaseAdmin hBaseAdmin, Subscriptions subscriptions) throws FatalInitializationException {
+    public SnapshotDataImpl(DateTime snapshotTime, HBaseAdmin hBaseAdmin, Subscriptions subscriptions, 
+            AdvisorManager advisorManager) throws FatalInitializationException {
         this.snapshotTime = snapshotTime;
         this.hBaseAdmin = hBaseAdmin;
         this.subscriptions = subscriptions;
+        this.advisorManager = advisorManager;
         this.clusterStatus = obtainClusterStatus(this.hBaseAdmin);
         this.liveServers = this.clusterStatus.getServers();
         this.regionServerLoadDetails = obtainRegionServerLoadDetails(this.clusterStatus, liveServers);
@@ -115,7 +118,14 @@ public class SnapshotDataImpl implements SnapshotData {
 
     @Override
     public Map<HBaseService, MBeanAttributeValues> getSubscribedJMXAttributeValues() {
-        return subscribedJmxAttributeValues;
+        Class<?> currentAdvisor = advisorManager.getCurrentAdvisor();
+        return filterSubscribedJmxAttributeValues(subscribedJmxAttributeValues, currentAdvisor);
+    }
+
+    private Map<HBaseService, MBeanAttributeValues> filterSubscribedJmxAttributeValues(
+            Map<HBaseService, MBeanAttributeValues> subscribedJmxAttributeValues, Class<?> currentAdvisor) {
+        // TODO Implement this
+        return null;
     }
 
     private static ClusterStatus obtainClusterStatus(HBaseAdmin hBaseAdmin) throws FatalInitializationException {

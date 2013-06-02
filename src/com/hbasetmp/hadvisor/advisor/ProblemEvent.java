@@ -7,10 +7,13 @@ public class ProblemEvent {
 	private final String message;
 	private final HBaseService affectsServer;
 
+	public ProblemEvent(String message) {
+	    this(message, null);
+	}
+	
 	public ProblemEvent(String message, HBaseService affectsServer) {
 		this.message = message;
 		this.affectsServer = affectsServer;
-		
 	}
 
 	public String getMessage() {

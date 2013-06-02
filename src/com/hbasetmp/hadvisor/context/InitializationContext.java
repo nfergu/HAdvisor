@@ -46,7 +46,7 @@ public interface InitializationContext extends BaseContext {
 	public void subscribeToNonHBaseLogMessages(String logNameSubstring, String messageText);
 	
 	/**
-	 * Has the same functionality as the {@link #subscribeToNonHBaseLogMessagess(String, String)} method, 
+	 * Has the same functionality as the {@link #subscribeToNonHBaseLogMessages(String, String)} method, 
 	 * but the log messages must match the specified regular expression.
 	 */
 	public void subscribeToNonHBaseLogMessages(String logNameSubstring, Pattern messageRegex);

@@ -20,5 +20,7 @@
 	<classpathentry kind="lib" path="lib/zookeeper-3.4.3.jar"/>
 	<classpathentry kind="lib" path="lib/test/junit-4.10-HBASE-1.jar"/>
 	<classpathentry kind="lib" path="lib/test/hbase-0.94.2-tests.jar"/>
+	<classpathentry kind="lib" path="lib/httpcore-4.2.4.jar"/>
+	<classpathentry kind="lib" path="lib/httpclient-4.2.5.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

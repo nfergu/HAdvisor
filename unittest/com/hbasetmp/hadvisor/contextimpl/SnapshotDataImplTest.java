@@ -31,7 +31,7 @@ public class SnapshotDataImplTest {
         configuration = miniCluster.getConfiguration();
         hBaseAdmin = new HBaseAdmin(configuration);
         snapshotDataImpl = new SnapshotDataImpl(
-                DateTime.now(), hBaseAdmin, new Subscriptions(Collections.<JmxAttribute>emptyList()));
+                DateTime.now(), hBaseAdmin, new Subscriptions(Collections.<JmxAttribute>emptyList()), new AdvisorManager());
     }
     
     @Test

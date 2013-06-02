@@ -2,6 +2,8 @@ package com.hbasetmp.hadvisor.context;
 
 public class HAdvisorVersion {
 
+    public static final HAdvisorVersion V0_1_1 = new HAdvisorVersion(new Version(0, 1, 1), new Version(0, 94, 2));
+    
     public static void main(String[] args) {
         System.out.println(CURRENT_VERSION);
     }

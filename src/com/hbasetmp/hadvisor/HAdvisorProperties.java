@@ -6,6 +6,10 @@ import com.hbasetmp.hadvisor.util.Util;
 public class HAdvisorProperties {
 
     private static final String PREFIX = "hadvisor.";
+    
+    public static final AdvisorProperty<Integer> CHECK_FREQUENCY = new AdvisorProperty<Integer>(
+            getProperty("check.frequency"), Integer.class, 5,
+            "How often to perform advice checks, in minutes.");
 
     public static final AdvisorProperty<Integer> MASTER_JMX_PORT = new AdvisorProperty<Integer>(
             getProperty("master.jmx.port"), Integer.class, 10101,
@@ -30,6 +34,10 @@ public class HAdvisorProperties {
     public static final AdvisorProperty<String> WEB_UI_CONFIG_PATH = new AdvisorProperty<String>(
             getProperty("web.ui.config.path"), String.class, "conf",
             "The config path that the web UI serves the HBase configuration on. There should normally be no need to change this.");
+    
+    // For maximum log tail throughput (on heavily-loaded region server):
+    // RS: 68,635 bytes per minute
+    // GC: 15,691 bytes per minute
 
     private static final AdvisorProperty<?>[] allProperties = new AdvisorProperty<?>[] {
         MASTER_JMX_PORT,

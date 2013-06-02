@@ -40,6 +40,7 @@ import com.hbasetmp.hadvisor.context.MBeanAttributeValues;
 import com.hbasetmp.hadvisor.context.RegionDetails;
 import com.hbasetmp.hadvisor.context.SnapshotData;
 import com.hbasetmp.hadvisor.context.TableName;
+import com.hbasetmp.hadvisor.contextimpl.log.LogSnapshot;
 import com.hbasetmp.hadvisor.exception.FatalInitializationException;
 import com.hbasetmp.hadvisor.util.Util;
 
@@ -48,16 +49,20 @@ public class CurrentDataImpl implements CurrentData {
     private static final Logger LOG = LoggerFactory.getLogger(CurrentDataImpl.class);
  
     private final HBaseAdmin hBaseAdmin;
-    private final Subscriptions subscriptions;
     private final SnapshotData snapshotData;
     private final List<HTableDescriptor> tableDescriptors;
+    private final LogSnapshot logSnapshot;
+    private final AdvisorManager advisorManager;
 
     private final Map<HBaseService, Map<String, ConfigProperty>> configPropertyCache = newConcurrentMap();
+
     
-    public CurrentDataImpl(HBaseAdmin hBaseAdmin, Subscriptions subscriptions, SnapshotData snapshotData) throws FatalInitializationException {
+    public CurrentDataImpl(HBaseAdmin hBaseAdmin, SnapshotData snapshotData, 
+            LogSnapshot logSnapshot, AdvisorManager advisorManager) throws FatalInitializationException {
         this.hBaseAdmin = hBaseAdmin;
-        this.subscriptions = subscriptions;
         this.snapshotData = snapshotData;
+        this.logSnapshot = logSnapshot;
+        this.advisorManager = advisorManager;
         this.tableDescriptors = obtainTableDescriptors(hBaseAdmin);
     }
 
@@ -123,8 +128,8 @@ public class CurrentDataImpl implements CurrentData {
 
     @Override
     public List<LogMessage> getHBaseSubscribedLogMessages() {
-        // TODO DO THIS NEXT!
-        return null;
+        Class<?> currentAdvisor = advisorManager.getCurrentAdvisor();
+        return logSnapshot.getHBaseLogMessages(currentAdvisor);
     }
 
     /* (non-Javadoc)
@@ -132,8 +137,8 @@ public class CurrentDataImpl implements CurrentData {
      */
     @Override
     public Map<String, List<LogMessage>> getNonHBaseSubscribedLogMessages() {
-        // TODO Auto-generated method stub
-        return null;
+        Class<?> currentAdvisor = advisorManager.getCurrentAdvisor();
+        return logSnapshot.getNonHBaseLogMessages(currentAdvisor);
     }
 
     /* (non-Javadoc)
